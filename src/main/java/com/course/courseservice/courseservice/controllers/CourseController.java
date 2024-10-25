@@ -55,4 +55,10 @@ public class CourseController {
         List<CourseDtoResponse> listCourseByRating = courseService.getCourseByRatings(ratings);
         return new ResponseEntity<>(listCourseByRating, HttpStatus.OK);
     }
+
+    @GetMapping("/")
+    public ResponseEntity<List<CourseDtoResponse>> getAllCourse() {
+        List<CourseDtoResponse> allCourses = courseService.getAllCourse();
+        return new ResponseEntity<>(allCourses, HttpStatus.OK);
+    }
 }

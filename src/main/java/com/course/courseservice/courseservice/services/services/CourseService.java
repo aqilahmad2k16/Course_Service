@@ -12,6 +12,7 @@ public interface CourseService {
     List<CourseDtoResponse> getCoursesByCategory(String category);
 
     List<CourseDtoResponse> getCourseByRatings(String ratings);
+    List<CourseDtoResponse> getAllCourse();
 
 //    List<CourseDtoResponse> getCourseByRating(String ratings);
 }

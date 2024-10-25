@@ -1,0 +1,9 @@
+# if you want to contribute to open source project that you can do by following steps
+1st: first fork(clone) source repo to your personal account.
+2nd: then donwload this fork repo from your account to your local machine.
+3rd: here you can create separate branch or work on the same branch.
+4th: Once you finish the task or work then commit your change to your remote of your account.
+5th: Now, go to your remote repo and create Pull Request  to open source project (source account)
+     whose code you have, as you send PR to open source.
+6th: any other side people (who has upload this open source) will our review your code
+7th: And if he find good then he will merge your changes.
