@@ -52,4 +52,12 @@ public class CourseImplService implements CourseService {
 //        List<Course> course = courseRepo.findByRatingsGreaterThanEqual(ratings);
 //        return CourseDtoResponse.getListFrom(course);
 //    }
+
+    @Override
+    public List<CourseDtoResponse> getAllCourse() {
+        List<Course> courses = courseRepo.findAll();
+        return courses.stream()
+                .map(CourseDtoResponse::from)
+                .collect(Collectors.toList());
+    }
 }
