@@ -27,7 +27,7 @@ public class CourseDtoResponse {
         category.setCreatedAt(savedCourse.getCreatedAt());
         category.setUpdatedAt(savedCourse.getUpdatedAt());
         response.setCategory(category);
-        response.setDuration(savedCourse.getDuration());
+        response.setDuration(savedCourse.getTotalDuration());
         response.setDescription(savedCourse.getDescription());
         response.setRatings(savedCourse.getRatings());
         response.setId(savedCourse.getId());

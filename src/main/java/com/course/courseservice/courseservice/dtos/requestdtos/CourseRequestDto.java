@@ -2,7 +2,6 @@ package com.course.courseservice.courseservice.dtos.requestdtos;
 
 import com.course.courseservice.courseservice.models.Category;
 import com.course.courseservice.courseservice.models.Course;
-import com.course.courseservice.courseservice.models.Module;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -18,15 +17,15 @@ public class CourseRequestDto {
     private String description;
     private String duration;
     private Category category;
-    public static Course to(CourseRequestDto courseRequestDto) {
-        Course course = new Course(
-                courseRequestDto.getName(),
-                courseRequestDto.getAuthor(),
-                courseRequestDto.getRatings(),
-                courseRequestDto.getDescription(),
-                courseRequestDto.getDuration(),
-                new Category(courseRequestDto.getCategory().getName())
-        );
-        return course;
-    }
+//    public static Course to(CourseRequestDto courseRequestDto) {
+//        Course course = new Course(
+//                courseRequestDto.getName(),
+//                courseRequestDto.getAuthor(),
+//                courseRequestDto.getRatings(),
+//                courseRequestDto.getDescription(),
+//                courseRequestDto.getDuration(),
+//                new Category(courseRequestDto.getCategory().getName())
+//        );
+//        return course;
+//    }
 }

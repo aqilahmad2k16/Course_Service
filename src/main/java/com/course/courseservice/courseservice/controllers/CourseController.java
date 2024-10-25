@@ -25,11 +25,12 @@ public class CourseController {
     @PostMapping("/")
     public ResponseEntity<CourseDtoResponse> addNewCourse(@Valid @RequestBody CourseRequestDto courseRequestDto) throws CourseIsAlreadyExistException {
 
-            Course savedCourse = courseService.addNewCourse(CourseRequestDto.to(courseRequestDto));
-            CourseDtoResponse courseDtoResponse = CourseDtoResponse.from(savedCourse);
-
-
-        return new ResponseEntity<>(courseDtoResponse, HttpStatus.CREATED);
+//            Course savedCourse = courseService.addNewCourse(CourseRequestDto.to(courseRequestDto));
+//            CourseDtoResponse courseDtoResponse = CourseDtoResponse.from(savedCourse);
+//
+//
+//        return new ResponseEntity<>(courseDtoResponse, HttpStatus.CREATED);
+        return null;
     }
 
     /*

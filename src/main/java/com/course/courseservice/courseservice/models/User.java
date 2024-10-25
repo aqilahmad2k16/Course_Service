@@ -1,10 +1,11 @@
 package com.course.courseservice.courseservice.models;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.BatchSize;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -13,14 +14,20 @@ public class User extends BaseModel{
     private String phoneNumber;
     private String email;
     private String password;
-    @OneToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name = "dashboard_id", referencedColumnName = "id")
-    private Dashboard dashboard;
+    @Enumerated(EnumType.STRING)
     private UserTypes userTypes;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "progressreport_id", referencedColumnName = "id")
-    private ProgressReport progressreport;
-    @OneToOne(mappedBy = "user")
-    private Payment payment;
+    private String profileImage;
+    private String membershipLevel;
+    private Long totalCourseEnrolled;
+//    @OneToOne(mappedBy = "user")
+////    private Payment payment;
     private Boolean isEmailVerified;
+    @ManyToMany
+    @JoinTable(
+            name = "user_course",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    @BatchSize(size = 10)
+    private Set<Course> courses = new HashSet<>();
 }

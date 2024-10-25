@@ -15,10 +15,19 @@ import lombok.NoArgsConstructor;
         @Index(name = "idx_ratings", columnList = "ratings")})
 public class Course extends BaseModel{
     private String name;
-    private String author;
     private String ratings;
     private String description;
-    private String duration;
+    private String author;
+    private String totalDuration;
+    private Double progress;
+    private Boolean isComplete;
+    private Boolean isActive;
+    private Long sessionsCompleted;
+    private Long totalSessions;
+    private String nextSessionDate;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn
+    private User mentor;
 
     //this is owning table, which has foreign key
 
@@ -27,5 +36,12 @@ public class Course extends BaseModel{
     private Category category;
 //    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private List<Module> modules;
+
+    /*
+    course <=> mentor
+       1 => 1
+       M => 1
+       M : 1
+     */
 
 }

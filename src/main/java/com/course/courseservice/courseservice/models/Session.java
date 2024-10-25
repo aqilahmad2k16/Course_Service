@@ -11,9 +11,9 @@ import lombok.Data;
 public class Session extends BaseModel{
     private String name;
     private String description;
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "module_id")
-    private Module module;
+//    @ManyToOne(cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "module_id")
+//    private Module module;
     private String mediaSrc;
     private String notesSrc;
     private String assignmentSrc;
