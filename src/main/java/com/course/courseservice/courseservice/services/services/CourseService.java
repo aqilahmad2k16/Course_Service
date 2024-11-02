@@ -14,5 +14,5 @@ public interface CourseService {
     List<CourseDtoResponse> getCourseByRatings(String ratings);
     List<CourseDtoResponse> getAllCourse();
 
-//    List<CourseDtoResponse> getCourseByRating(String ratings);
+    List<CourseDtoResponse> getCourseByMaxRating(String maxRating);
 }

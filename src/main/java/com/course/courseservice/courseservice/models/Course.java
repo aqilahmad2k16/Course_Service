@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
         @Index(name = "idx_ratings", columnList = "ratings")})
 public class Course extends BaseModel{
     private String name;
+    @Column(nullable = false, columnDefinition = "String default 3.0")
     private String ratings;
     private String description;
     private String author;
     private String totalDuration;
     private Double progress;
     private Boolean isComplete;
-    private Boolean isActive;
     private Long sessionsCompleted;
     private Long totalSessions;
     private String nextSessionDate;

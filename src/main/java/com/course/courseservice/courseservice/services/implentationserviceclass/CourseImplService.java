@@ -1,7 +1,9 @@
 package com.course.courseservice.courseservice.services.implentationserviceclass;
 
 import com.course.courseservice.courseservice.dtos.responsedtos.CourseDtoResponse;
+import com.course.courseservice.courseservice.exceptions.ExceptionMessage;
 import com.course.courseservice.courseservice.exceptions.customexception.CourseIsAlreadyExistException;
+import com.course.courseservice.courseservice.exceptions.customexception.CourseNotFoundException;
 import com.course.courseservice.courseservice.models.Course;
 import com.course.courseservice.courseservice.repositories.CourseRepository;
 import com.course.courseservice.courseservice.services.services.CourseService;
@@ -47,15 +49,20 @@ public class CourseImplService implements CourseService {
                 .collect(Collectors.toList());
     }
 
-//    @Override
-//    public List<CourseDtoResponse> getCourseByRatings(String ratings) {
-//        List<Course> course = courseRepo.findByRatingsGreaterThanEqual(ratings);
-//        return CourseDtoResponse.getListFrom(course);
-//    }
-
     @Override
     public List<CourseDtoResponse> getAllCourse() {
         List<Course> courses = courseRepo.findAll();
+        return courses.stream()
+                .map(CourseDtoResponse::from)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CourseDtoResponse> getCourseByMaxRating(String maxRating) {
+        List<Course> courses = courseRepo.findByRatingsLessThanEqual(maxRating);
+        if(courses.isEmpty()){
+            throw new CourseNotFoundException(ExceptionMessage.NO_COURSE_IS_FOUND);
+        }
         return courses.stream()
                 .map(CourseDtoResponse::from)
                 .collect(Collectors.toList());

@@ -6,4 +6,5 @@ public class ExceptionMessage {
     public static final String TOKEN_DOES_NOT_EXIST = "This token is not exist in database";
     public static final String INVALID_TOKEN = "INVALID TOKEN";
     public static final String TOKEN_IS_EXPIRED = "TOKEN IS EXPIRED";
+    public static final String NO_COURSE_IS_FOUND = "No course is found under this ratings";
 }
