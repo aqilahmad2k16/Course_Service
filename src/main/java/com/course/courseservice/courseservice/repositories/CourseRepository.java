@@ -14,4 +14,6 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
     List<Course> findByCategoryName(String category);
 
     List<Course> findByRatingsGreaterThanEqual(String ratings);
+
+    List<Course> findByRatingsLessThanEqual(String maxRating);
 }

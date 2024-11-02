@@ -2,6 +2,8 @@ package com.course.courseservice.courseservice.dtos.responsedtos;
 
 import com.course.courseservice.courseservice.models.Category;
 import com.course.courseservice.courseservice.models.Course;
+import com.course.courseservice.courseservice.models.User;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -9,28 +11,14 @@ import java.util.List;
 
 @Data
 public class CourseDtoResponse {
-    private Long Id;
-    private String name;
-    private String author;
-    private String ratings;
-    private String description;
-    private String duration;
-    private Category category;
+    private String courseId;
+    private String mentorId;
+    private String categoryId;
     public static CourseDtoResponse from(Course savedCourse) {
         CourseDtoResponse response = new CourseDtoResponse();
-        response.setName(savedCourse.getName());
-        response.setAuthor(savedCourse.getAuthor());
-//        response.setModules(savedCourse.getModules()); //for this, I will have to create list of modules object an set it here
-        Category category = new Category();
-        category.setName(savedCourse.getCategory().getName());
-        category.setId(savedCourse.getCategory().getId());
-        category.setCreatedAt(savedCourse.getCreatedAt());
-        category.setUpdatedAt(savedCourse.getUpdatedAt());
-        response.setCategory(category);
-        response.setDuration(savedCourse.getDuration());
-        response.setDescription(savedCourse.getDescription());
-        response.setRatings(savedCourse.getRatings());
-        response.setId(savedCourse.getId());
+        response.setCourseId("course_" + savedCourse.getId());
+        response.setMentorId("courseMentor_" + savedCourse.getId());
+        response.setCategoryId("courseCategory_" + savedCourse.getCategory().getId());
         return response;
     }
 

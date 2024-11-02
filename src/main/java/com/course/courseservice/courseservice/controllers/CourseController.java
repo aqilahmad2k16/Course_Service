@@ -24,12 +24,9 @@ public class CourseController {
      */
     @PostMapping("/")
     public ResponseEntity<CourseDtoResponse> addNewCourse(@Valid @RequestBody CourseRequestDto courseRequestDto) throws CourseIsAlreadyExistException {
-
             Course savedCourse = courseService.addNewCourse(CourseRequestDto.to(courseRequestDto));
             CourseDtoResponse courseDtoResponse = CourseDtoResponse.from(savedCourse);
-
-
-        return new ResponseEntity<>(courseDtoResponse, HttpStatus.CREATED);
+            return new ResponseEntity<>(courseDtoResponse, HttpStatus.CREATED);
     }
 
     /*
@@ -60,5 +57,16 @@ public class CourseController {
     public ResponseEntity<List<CourseDtoResponse>> getAllCourse() {
         List<CourseDtoResponse> allCourses = courseService.getAllCourse();
         return new ResponseEntity<>(allCourses, HttpStatus.OK);
+    }
+
+    /*
+    GetMapping:- get all list of all courses whose rating is less than or equal to rating
+    GET /api/courses/by-rating?maxRating=4.5
+     */
+
+    @GetMapping("/by-rating")
+    public ResponseEntity<List<CourseDtoResponse>> getCourseByRating(@RequestParam String maxRating) {
+        List<CourseDtoResponse> listCourseByRating  = courseService.getCourseByMaxRating(maxRating);
+        return new ResponseEntity<>(listCourseByRating, HttpStatus.OK);
     }
 }

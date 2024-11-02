@@ -12,7 +12,5 @@ public class Post extends BaseModel{
     private String mediaContentSrc;
 //    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private List<Like> likes;
-    @ManyToOne
-    @JoinColumn(name = "discussionboard_id")
-    private DiscussionBoard discussionboard;
+
 }

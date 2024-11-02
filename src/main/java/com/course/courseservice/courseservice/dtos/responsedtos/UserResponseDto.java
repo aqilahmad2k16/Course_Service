@@ -1,8 +1,6 @@
 package com.course.courseservice.courseservice.dtos.responsedtos;
 
-import com.course.courseservice.courseservice.models.Dashboard;
 import com.course.courseservice.courseservice.models.Payment;
-import com.course.courseservice.courseservice.models.ProgressReport;
 import com.course.courseservice.courseservice.models.UserTypes;
 import lombok.Data;
 
@@ -13,7 +11,5 @@ public class UserResponseDto {
     private String email;
     private String password;
     private UserTypes userTypes;
-    private Dashboard dashboard;
-    private ProgressReport progressreport;
     private Payment payment;
 }
